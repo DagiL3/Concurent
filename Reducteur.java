@@ -1,3 +1,4 @@
+
 public class Reducteur extends Thread {
  Lecture_Reducteur reducteur;    
 
@@ -12,21 +13,24 @@ public class Reducteur extends Thread {
 
  public void run(){
     
-        long start=System.currentTimeMillis();
-         long end=start+30000;
-             while(end>System.currentTimeMillis()){
+  long start=System.currentTimeMillis();
+  long end=start+59000;
+      while(end>System.currentTimeMillis()){
                    long r=random_int(500,2000);
                     try{
                       Thread.sleep(r);  
                       reducteur.startWright();
+                      Thread.sleep(1000);
                       reducteur.affich();
-                      reducteur.startWright();
-                      reducteur.affich();
+                      reducteur.stopWright();
+                     // Thread.sleep(100);
+                     // reducteur.affich();
                      }catch(InterruptedException e){
                        System.out.print(e);
-                     }   
+                     }  
+                    } 
                      
-             }
+             
             
  }
  
